@@ -67,6 +67,8 @@ class SoftRasterizeFunction(Function):
         soft_colors[:, 0, :, :] *= background_color[0]
         soft_colors[:, 1, :, :] *= background_color[1]
         soft_colors[:, 2, :, :] *= background_color[2]
+
+        # TODO: soft_colors do not init in cuda
         faces_info, aggrs_info, soft_colors = \
             soft_rasterize_cuda.forward_soft_rasterize(face_vertices, textures,
                                                        faces_info, aggrs_info,
